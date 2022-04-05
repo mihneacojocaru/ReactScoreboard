@@ -7,21 +7,28 @@ import Header from "./components/Header";
 function App() {
   const [players, setPlayers] = useState([
     {
-      name: "John",
-      points: 5,
+      name: "Jasper",
+      points: 7,
       id: 1,
     },
     {
       name: "Ashley",
-      points: 2,
+      points: 5,
       id: 2,
     },
     {
-      name: "Timberly",
-      points: 1,
+      name: "Charlotte",
+      points: 3,
       id: 3,
     },
   ]);
+
+  const [newplayer, setNewplayer] = useState("");
+  const [highest, setHighest] = useState(0);
+
+  useEffect(() => {
+    getHighestScore();
+  }, [players]);
 
   const addPlayer = (newPlayer = "NewPlayer") => {
     setPlayers((prev) => [
@@ -45,22 +52,43 @@ function App() {
       scores.push(e.points);
     });
 
-    return Math.max(...scores);
+    setHighest(Math.max(...scores));
   };
 
-  const scoreChange = (button, playerName) => {
+  const scoreChange = (button, id) => {
     if (button === "+") {
-      for (let i = 0; i < players.length; i++) {
-        if (players[i].name === playerName) {
-          players[i].points += 1;
+      let points;
+      players.forEach((e) => {
+        if (e.id == id) {
+          points = e.points + 1;
         }
-      }
+      });
+      setPlayers(players.map((el) => (el.id == id ? { ...el, points } : el)));
     } else if (button === "-") {
-      for (let i = 0; i < players.length; i++) {
-        if (players[i].name === playerName) {
-          players[i].points -= 1;
+      let points;
+      players.forEach((e) => {
+        if (e.id == id) {
+          points = e.points - 1;
         }
-      }
+      });
+      setPlayers(players.map((el) => (el.id == id ? { ...el, points } : el)));
+    }
+  };
+
+  const actionFunctions = (e) => {
+    let obj = e.target;
+    if (obj.textContent === "+") {
+      scoreChange("+", obj.id);
+    } else if (obj.textContent === "-") {
+      scoreChange("-", obj.id);
+    } else if (obj.classList.contains("close")) {
+      removePlayer(parseInt(obj.id));
+    } else if (obj.classList.contains("new-player")) {
+      setNewplayer(obj.value);
+    } else if (obj.type == "submit") {
+      newplayer != "" && addPlayer(newplayer);
+      setNewplayer("");
+      obj.parentElement.children[0].value = "";
     }
   };
 
@@ -68,31 +96,62 @@ function App() {
     <div className="app">
       <div className="app-body">
         <Header players={players} />
-        <div className="main__container">
-          {players.map((item) => (
-            <div key={item.id}>
-              <div className="main__container-player">
-                <FontAwesomeIcon
-                  icon={faClose}
-                  className="main__container-player-icon close"
-                />
-                <FontAwesomeIcon
-                  icon={faCrown}
-                  className="main__container-player-icon crown"
-                />
-                <span className="main__container-player-name">{item.name}</span>
-                <div className="main__container-player-buttons">
-                  <span>-</span>
-                  <span className="score">{item.points}</span>
-                  <span>+</span>
+        <div className="main__container" onClick={actionFunctions}>
+          {players.map((item) =>
+            item.points == highest ? (
+              <div key={item.id}>
+                <div className="main__container-player">
+                  <FontAwesomeIcon
+                    icon={faClose}
+                    id={item.id}
+                    className="main__container-player-icon close"
+                  />
+                  <FontAwesomeIcon
+                    icon={faCrown}
+                    className="main__container-player-icon crown best-crown"
+                  />
+                  <span className="main__container-player-name">
+                    {item.name}
+                  </span>
+                  <div className="main__container-player-buttons">
+                    <span id={item.id}>-</span>
+                    <span className="score">{item.points}</span>
+                    <span id={item.id}>+</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ) : (
+              <div key={item.id}>
+                <div className="main__container-player">
+                  <FontAwesomeIcon
+                    icon={faClose}
+                    id={item.id}
+                    className="main__container-player-icon close"
+                  />
+                  <FontAwesomeIcon
+                    icon={faCrown}
+                    className="main__container-player-icon crown"
+                  />
+                  <span className="main__container-player-name">
+                    {item.name}
+                  </span>
+                  <div className="main__container-player-buttons">
+                    <span id={item.id}>-</span>
+                    <span className="score">{item.points}</span>
+                    <span id={item.id}>+</span>
+                  </div>
+                </div>
+              </div>
+            )
+          )}
         </div>
-        <div className="add-player">
-          <input type="text" placeholder="ENTER A PLAYERS NAME" />
-          <button>Add Player</button>
+        <div className="add-player" onChange={actionFunctions}>
+          <input
+            className="new-player"
+            type="text"
+            placeholder="ENTER A PLAYERS NAME"
+          />
+          <button onClick={actionFunctions}>Add Player</button>
         </div>
       </div>
     </div>
