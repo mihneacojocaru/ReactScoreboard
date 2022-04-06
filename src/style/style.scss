@@ -60,6 +60,40 @@
     background-color: #1c7471;
 }
 
+.app-header__stopwatch-display{
+    font-family: "Roboto";
+    margin: 10px 0;
+    font-size: 35px;
+}
+
+.app-header__stopwatch-buttons{
+    button{
+        padding: 5px 0;
+        width: 70px;
+        margin: 5px 15px;
+
+        border: none;
+        border-radius: 5px;
+        background-color: #73d2de;
+            color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: #d81159;
+            color: white;
+        }
+
+        &:active {
+            background-color: #ffbc42;
+            color: black;
+        }
+
+    }
+}
+
 .main__container {
     width: 100%;
     flex: 1;
