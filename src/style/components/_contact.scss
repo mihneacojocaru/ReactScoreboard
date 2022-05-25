@@ -1,0 +1,221 @@
+.contact {
+  position: relative;
+  padding: 10px 0;
+  min-height: calc(90vh - 80px);
+  background-color: $dark1;
+  text-align: center;
+  color: $light-color;
+
+  &__titleSection{
+    padding: 20px 0;
+    font-size: 25px;
+
+    p{
+      font-size: 16px;
+      color: $blueMainColor;
+      padding: 20px 0;
+    }
+  }
+
+  &__emailForm{
+    @include flexy($dir:column, $align:center, $just:center);
+    margin-bottom: 10%;
+    input{
+      width: 300px;
+      padding: 7px;
+      background-color: $darkShades;
+      color: $light-color;
+      border: none;
+      margin: 0 0 3px;
+      outline: none;
+    }
+    textarea{
+      width: 300px;
+      height: 150px;
+      padding: 7px;
+      background-color: $darkShades;
+      color: $light-color;
+      border: none;
+      outline: none;
+      resize: vertical;
+    }
+
+    &--btnContainer{
+      width: 300px;
+      padding: 1em 0 0;
+      @include flexy($just:flex-end);
+      button{
+        padding: 10px 20px;
+        background-color: $dark1;
+        border: 2px solid $light-color;
+        border-radius: 3px;
+        color: $light-color;
+        text-transform: uppercase;
+        transition: .8s ease;
+        cursor: pointer;
+        &:hover{
+          background-color: $blueMainColor;
+          border-color: $blueMainColor;
+          border-radius: 0px;
+        }
+      }
+    }
+
+    
+
+    @include mq('md'){
+      input, textarea, &--btnContainer{
+        width: 500px;
+      }
+    }
+  }
+
+  &__sideLinks{
+    @include flexy($dir:row);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include mq('md'){
+      display: block;
+      top: 30%;
+      left: 0px;
+      transform: translateX(0);
+    }
+
+    a{
+      color: $light-color;
+    }
+
+    &--linkedIn, &--xing, &--github, &--facebook{
+      @include flexy($dir:column, $align:flex-end, $just:center);
+      width: 50px;
+      height: 50px;
+      padding-right: 10px;
+      transition: .5s ease;
+      cursor: pointer;
+      position: relative;
+      svg{
+        font-size: 30px;
+      }
+    }
+
+    &--linkedIn{
+      background-color: #0077b5;
+      @include mq('lg'){
+      &::after{
+          content: 'LinkedIn';
+          position: absolute;
+          font-size: 1em;
+          left: .5em;
+          transition: opacity 1s ease-in-out, color .2s ease-in-out;
+          opacity: 0;
+          color: rgba($light-color,0);
+        }
+      &:hover{
+        width: 130px;
+        transition: .4s ease-in;
+        &::after{
+          color:rgba($light-color, 1);
+          opacity: 1;
+        }
+      }
+      }
+      
+    }
+
+    &--xing{
+      background-color: #126567;
+      @include mq('lg'){
+        &::after{
+            content: 'Xing';
+            position: absolute;
+            font-size: 1em;
+            left: .5em;
+            transition: opacity 1s ease-in-out, color .2s ease-in-out;
+            opacity: 0;
+            color: rgba(0,0,0,0);
+          }
+        &:hover{
+          width: 110px;
+          transition: .4s ease-in;
+          &::after{
+            color:rgba($light-color, 1);
+            opacity: 1;
+          }
+        }
+        }
+    }
+
+    &--github{
+      background-color: #333;
+      @include mq('lg'){
+        &::after{
+            content: 'GitHub';
+            position: absolute;
+            font-size: 1em;
+            left: .5em;
+            transition: opacity 1s ease-in-out, color .2s ease-in-out;
+            opacity: 0;
+            color: rgba(0,0,0,0);
+          }
+        &:hover{
+          width: 110px;
+          transition: .4s ease-in;
+          &::after{
+            color:rgba($light-color, 1);
+            opacity: 1;
+          }
+        }
+        }
+    }
+
+    &--facebook{
+      background-color: #3b5998;
+      @include mq('lg'){
+        &::after{
+            content: 'Facebook';
+            position: absolute;
+            font-size: 1em;
+            left: .5em;
+            transition: opacity 1s ease-in-out, color .1s ease;
+            opacity: 0;
+            color: rgba(0,0,0,0);
+          }
+        &:hover{
+          width: 130px;
+          transition: .3s ease-in;
+          &::after{
+            color:rgba($light-color, 1);
+            opacity: 1;
+          }
+        }
+        }
+    }
+  }
+
+  // &__divider {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   overflow: hidden;
+  //   line-height: 0;
+  //   svg {
+  //     position: relative;
+  //     display: block;
+  //     width: calc(115% + 1.3px);
+  //     height: 80px;
+  //     @include mq("md") {
+  //       height: 140px;
+  //     }
+  //     @include mq("lg") {
+  //       height: 200px;
+  //     }
+  //   }
+  //   &--fill {
+  //     fill: $darkShades;
+  //   }
+  // }
+}

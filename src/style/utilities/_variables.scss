@@ -1,0 +1,48 @@
+$breakpoints: (
+  "sm": 100px,
+  "md": 768px,
+  "md2": 900px,
+  "lg": 1024px,
+  "lg2": 1136px,
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Bungee+Shade&family=Wallpoet&display=swap');
+
+$font-stack-primary: "Raleway", sans-serif;
+$font-navbar: 'Raleway', sans-serif;
+$font-sidebar: Grandstander, sans-serif;
+$font-logo: "Sansita Swashed", sans-serif;
+
+$font-bangers: 'Bangers', sans-serif;
+
+
+//Colors
+
+$light-color: #fbfafb;
+$dark0: #111111;
+$dark00: #000000;
+$dark1: #191919;
+$darkShades: #383948;
+
+$grayAccents: #9b9ea3;
+$lightAccents: #9da6a4;
+//$blueMainColor: #7a93ae;
+$blueMainColor: #2BAAC8;
+
+$warning-red: #e84923;
+//$warning-red: #C7482C;
+$succes-green: #2cc796;
+
+
+
+

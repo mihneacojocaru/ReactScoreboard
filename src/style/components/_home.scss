@@ -1,0 +1,202 @@
+.home {
+  //min-height: calc(100vh - 80px);
+  //overflow: hidden;
+  background-color: $dark1;
+  color: $light-color;
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  padding-bottom: 15%;
+  padding-top: 5%;
+
+  p {
+    padding: 10px 0;
+  }
+  &__content {
+    padding: 0 10%;
+    flex: 1;
+    @include flexy($dir: column, $just: center, $align: flex-start);
+  }
+
+  &__firstPTag {
+    color: $blueMainColor;
+    font-size: 18px;
+  }
+  &__name {
+    font-size: 40px;
+    color: $light-color;
+  }
+  &__whatIDo {
+    font-size: 40px;
+    color: $grayAccents;
+  }
+
+  &__description {
+    color: $grayAccents;
+    max-width: 400px;
+    font-size: 18px;
+    line-height: 1.5em;
+    @include mq("lg") {
+      max-width: 510px;
+    }
+  }
+
+  &__button {
+    margin: 1em 0;
+    padding: 10px 20px;
+    color: $light-color;
+    background-color: $dark1;
+    border: 2px solid $light-color;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+    @include flexy($align:center);
+    &--arrow{
+        margin-left: 10px;
+        font-size: 25px;
+        transition: 0.5s;
+        
+    }
+
+    &:hover {
+      background-color: $blueMainColor;
+      border-color: $blueMainColor;
+      border-radius: 0px;
+      .home__button--arrow{
+          transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__drawing {
+    display: none;
+    position: relative;
+    margin-top: 3em;
+    height: 380px;
+    width: auto;
+
+    @include mq("lg") {
+      margin-top: 5em;
+      padding-right: 5em;
+    }
+
+    @include mq("md") {
+      display: block;
+      margin-right: 10%;
+      padding-right: 0.5%;
+      img {
+        height: 350px;
+        width: auto;
+        z-index: 2;
+      }
+      .home__backgroundCircle {
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        z-index: -1;
+        height: 360px;
+        width: auto;
+      }
+      .home__reactCircle {
+        display: none;
+        position: absolute;
+        left: -20px;
+        top: -115px;
+        height: 120px;
+        width: auto;
+        background-image: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.1),
+          rgba(255, 255, 255, 0.5)
+        );
+        border-radius: 50%;
+      }
+      .home__sassCircle {
+        display: none;
+        position: absolute;
+        left: -80px;
+        top: 15px;
+        height: 80px;
+        width: auto;
+        background-image: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.1),
+          rgba(255, 255, 255, 0.5)
+        );
+        border-radius: 50%;
+      }
+      .home__nodeCircle {
+        display: none;
+        position: absolute;
+        left: -132px;
+        top: 125px;
+        height: 100px;
+        width: auto;
+        background-image: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.1),
+          rgba(255, 255, 255, 0.5)
+        );
+        border-radius: 50%;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      .home__reactCircle {
+        display: block;
+        left: -70px;
+        top: -90px;
+      }
+      .home__sassCircle {
+        display: block;
+        left: -115px;
+        top: 90px;
+      }
+      .home__nodeCircle {
+        display: block;
+        left: -115px;
+        top: 230px;
+      }
+    }
+    @media screen and (min-width: 1250px) {
+      .home__reactCircle {
+        left: -100px;
+        top: -110px;
+      }
+      .home__sassCircle {
+        left: -150px;
+        top: 80px;
+      }
+      .home__nodeCircle {
+        left: -150px;
+        top: 245px;
+      }
+    }
+  }
+
+  &__wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 50px;
+      @include mq("md") {
+        height: 100px;
+      }
+      @include mq("lg") {
+        height: 181px;
+      }
+    }
+    .shape-fill {
+      fill: $darkShades;
+    }
+  }
+}

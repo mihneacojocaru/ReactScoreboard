@@ -1,0 +1,14 @@
+.footer{
+    background-color: $darkShades;
+    color: $light-color;
+    text-align: center;
+    padding: 1em;
+
+    &__link{
+        color: $blueMainColor;
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
