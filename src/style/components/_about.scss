@@ -1,16 +1,27 @@
 .about {
   position: relative;
-  min-height: calc(100vh - 80px);
+  //min-height: calc(100vh - 80px);
   background-color: $darkShades;
   text-align: center;
   color: $light-color;
-  padding: 0 10% 10%;
+  padding: 0 10%;
+  padding-bottom: 5em;
+
+  @include mq('md'){
+    padding: 0 8em 10em;
+  }
+
+  &__container{
+    max-width: 1800px;
+    margin: 0 auto;
+  }
 
   &__title-section {
     padding: 20px 0;
-    font-size: 25px;
+    font-size: 20px;
     @include mq("md") {
       margin-bottom: 1em;
+      font-size: 25px;
     }
   }
 
@@ -150,13 +161,16 @@
   }
 
   &__elements {
-    @include flexy($dir: row, $align: center, $just: center, $wrap: wrap);
+   display: grid;
+   align-items: center;
+   justify-items: center;
+   grid-gap: 10px;
+   grid-template-columns: 1fr;
     padding: 30px 0;
     &--item {
       padding: 10px 0;
-      margin-bottom: 10px;
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: auto;
       h2 {
         padding: 5px 0;
         margin: 0 0 10px;
@@ -167,15 +181,13 @@
     }
 
     @include mq("md") {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      width: 70%;
-      margin: 0 auto;
+      grid-template-columns: 1fr 1fr;
     }
-    @include mq('lg'){
-      width: 100%;
-    }
+
+   @include mq('xl'){
+     grid-template-columns: repeat(4,1fr);
+   }
+    
   }
 
   &__divider {

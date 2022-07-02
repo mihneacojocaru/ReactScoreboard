@@ -7,7 +7,7 @@ import { LanguageContext } from "./LanguageContext/LanguageProvider";
 
 const Work = () => {
 
-  const [lang,setLang] = useContext(LanguageContext);
+  const [lang] = useContext(LanguageContext);
 
   const [type, setType] = useState("all");
   const [filtered, setFiltered] = useState(projects);
@@ -42,27 +42,28 @@ const Work = () => {
     },
   ];
 
-  const scaleVariants = {
-    whileInView: {
-      scale: [0.4, 1],
-      opacity: [0, 1],
-      transition: {
-        duration: 0.8,
-        ease: "easeInOut",
-      },
-    },
-  };
+  // const scaleVariants = {
+  //   whileInView: {
+  //     scale: [0.4, 1],
+  //     opacity: [0, 1],
+  //     transition: {
+  //       duration: 0.8,
+  //       ease: "easeInOut",
+  //     },
+  //   },
+  // };
 
   useEffect(() => {
-    if (type == "all") {
+    if (type === "all") {
       setFiltered(projects);  
     } else {
-      setFiltered(projects.filter((e) => e.type == type));
+      setFiltered(projects.filter((e) => e.type === type));
     }
   }, [type]);
 
   return (
     <div className="work">
+      <div className="work__sectionContainer">
       <section className="work__title">
         <h2>{lang ? "My Work" : "Meine Projekte"}</h2>
       </section>
@@ -75,7 +76,7 @@ const Work = () => {
                 setType(e.type);
                 setActive(e.id);
               }}
-              className={e.id == active ? "active-btn" : "non-active"}
+              className={e.id === active ? "active-btn" : "non-active"}
             >
               {e.name}
             </button>
@@ -101,13 +102,14 @@ const Work = () => {
                 <img src={e.url} alt={e.name} />
                 <div className="work__container--cards--card__overlay work__container--cards--card__overlay--blurr">
                   <h2 className="work__container--cards--card__title">{e.name}</h2>
-                  <a href={e.website} target="_blank" rel="noreferrer"><button>Visit Website</button></a>
+                  <a href={e.website} target="_blank" rel="noreferrer"><button>{lang ? 'Visit Website' : 'Zur Website'}</button></a>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
       </section>
+      </div>
       <div className="work__divider">
         <svg
           data-name="Layer 1"

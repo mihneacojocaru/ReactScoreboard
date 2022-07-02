@@ -1,14 +1,19 @@
 .footer{
     background-color: $darkShades;
     color: $light-color;
-    text-align: center;
+    @include flexy($align:center, $just:center, $wrap:wrap);
     padding: 1em;
 
     &__link{
         color: $blueMainColor;
+        padding-left: 5px;
         &:hover{
             cursor: pointer;
             text-decoration: underline;
         }
+    }
+
+    &__p{
+        padding-left: 5px;
     }
 }

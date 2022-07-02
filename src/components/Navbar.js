@@ -50,61 +50,54 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-    className="navbar">
-      <div className="navbar__logo" onClick={refreshPage}>
-        {
-          (window.innerWidth > 766) 
-          ?
-            <motion.img className="navbar__logo--img" src={logo} alt="website logo" 
-            whileInView={{ x: [-200, 0] }}
-            transition={{ duration: 0.85, ease: "easeOut" }}
+    <header className="navbar__header">
+      <nav className="navbar">
+        <div className="navbar__logo" onClick={refreshPage}>
+          <img className="navbar__logo--img" src={logo} alt="website logo"/>
+        </div>
+        <motion.div
+          className={clicked ? "" : "navbar__items--hide"}
+          whileInView={{ x: [200, 0] }}
+          transition={{ duration: 0.85, ease: "easeOut" }}
+        >
+          <ul className="navbar__items">
+            {navLinks.map((e) => (
+              <li
+                key={e.id}
+                onClick={() => {
+                  setClicked(false);
+                }}
+              >
+                <Link to={e.url}
+                      spy={true}
+                      smooth={true}
+                      offset={-90}
+                      duration={500}
+                      onClick={() => {
+                          setClicked(false);
+                        }}
+                >{e.text}</Link>
+              </li>
+            ))}
+            <label className="navbar__items--languageSwitch">
+              <input type="checkbox" onChange={checkBox} 
+              checked={!lang ? 'checked' : ''}/>
+              <span className="navbar__items--languageSwitch--slider"></span>
+            </label>
+          </ul>
+        </motion.div>
+        <div className="navbar__content-toggle">
+          {clicked ? (
+            <AiOutlineClose className="navbar__close" onClick={clickHandler} />
+          ) : (
+            <BiMenuAltRight
+              onClick={clickHandler}
+              className="navbar__hamburger"
             />
-          : <img className="navbar__logo--img" src={logo} alt="website logo"/>
-        }
-      </div>
-      <motion.div
-        className={clicked ? "" : "navbar__items--hide"}
-        whileInView={{ x: [200, 0] }}
-        transition={{ duration: 0.85, ease: "easeOut" }}
-      >
-        <ul className="navbar__items">
-          {navLinks.map((e) => (
-            <li
-              key={e.id}
-              onClick={() => {
-                setClicked(false);
-              }}
-            >
-              <Link to={e.url}
-                    spy={true}
-                    smooth={true}
-                    offset={-90}
-                    duration={500}
-                    onClick={() => {
-                        setClicked(false);
-                      }}
-              >{e.text}</Link>
-            </li>
-          ))}
-          <label className="navbar__items--languageSwitch">
-            <input type="checkbox" onChange={checkBox} 
-            checked={!lang ? 'checked' : ''}/>
-            <span className="navbar__items--languageSwitch--slider"></span>
-          </label>
-        </ul>
-      </motion.div>
-      <div className="navbar__content-toggle">
-        {clicked ? (
-          <AiOutlineClose className="navbar__close" onClick={clickHandler} />
-        ) : (
-          <BiMenuAltRight
-            onClick={clickHandler}
-            className="navbar__hamburger"
-          />
-        )}
-      </div>
-    </nav>
+          )}
+        </div>
+      </nav>
+    </header>
   );
 };
 

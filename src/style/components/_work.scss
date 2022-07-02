@@ -1,14 +1,22 @@
 .work {
   position: relative;
-  min-height: calc(100vh - 80px);
-  padding: 1em 0 15em;
+  //min-height: calc(100vh - 80px);
+  padding: 1em 0 10em;
   background-color: $darkShades;
   text-align: center;
   color: $light-color;
 
+  &__sectionContainer{
+    max-width: 1900px;
+    margin: 0 auto;
+  }
+
   &__title {
     padding: 20px 0 0;
-    font-size: 25px;
+    font-size: 20px;
+    @include mq('md'){
+      font-size: 25px;
+    }
   }
 
   &__container {

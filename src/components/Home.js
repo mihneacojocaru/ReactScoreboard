@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 
 import {LanguageContext} from './LanguageContext/LanguageProvider.js'
 
@@ -17,15 +17,16 @@ import { homeTexts } from "../data";
 
 const Home = () => {
 
-  const [lang,setLang] = useContext(LanguageContext);
+  const [lang] = useContext(LanguageContext);
+
 
   useEffect(()=>{
-    // console.log(
-		// 	"%cLooking for something specific in here? \n Then E-mail me about it!",
-		// 	"background-color: green ; color: white ;" +
-		// 	"font-size: 18px ; text-decoration: underline ; " +
-		// 	"font-family: 'american typewriter' ; text-shadow: 1px 1px 3px black ;"
-		// );
+    console.log(
+			"%cLooking for something specific in here? \nThen E-mail me about it! \nmihnea.co@gmail.com",
+			"background-color: seagreen; color: white ;" +
+			"font-size: 18px ;" +
+			"font-family: 'Helvetica' ; text-shadow: 1px 1px 7px black ;"
+		);
   },[])
 
   const scaleVariants = {
@@ -41,52 +42,54 @@ const Home = () => {
 
   return (
     <div id="home" className="home">
-      <div className="home__content">
-        <p className="home__firstPTag">{lang ? homeTexts[0].hi_en : homeTexts[0].hi_de}</p>
-        <p className="home__name">{homeTexts[0].name}</p>
-        <p className="home__whatIDo">{lang ? homeTexts[0].whatIDo_en : homeTexts[0].whatIDo_de}</p>
-        <p className="home__description">
-        {lang ? homeTexts[0].desc_en : homeTexts[0].desc_de}
-        </p>
-        <Link
-          to="work"
-          spy={true}
-          smooth={true}
-          offset={-90}
-          duration={500}
-          className="home__button"
-        >
-          {lang ? homeTexts[0].viewWork_en : homeTexts[0].viewWork_de}
-          <BsFillArrowRightCircleFill className="home__button--arrow"/>
-        </Link>
-      </div>
-      <div className="home__drawing">
-        <img src={man} alt="Mann am Pc" />
-        <motion.img
-          className="home__backgroundCircle"
-          src={circle}
-          alt="Background circle"
-          variants={scaleVariants}
-          whileInView={scaleVariants.whileInView}
-        />
-        <motion.img
-          src={reactImg}
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-          className="home__reactCircle"
-        />
-        <motion.img
-          src={sassImg}
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }}
-          className="home__sassCircle"
-        />
-        <motion.img
-          src={nodeImg}
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
-          className="home__nodeCircle"
-        />
+      <div className="home__container">
+        <div className="home__content">
+          <p className="home__firstPTag">{lang ? homeTexts[0].hi_en : homeTexts[0].hi_de}</p>
+          <p className="home__name">{homeTexts[0].name}</p>
+          <p className="home__whatIDo">{lang ? homeTexts[0].whatIDo_en : homeTexts[0].whatIDo_de}</p>
+          <p className="home__description">
+          {lang ? homeTexts[0].desc_en : homeTexts[0].desc_de}
+          </p>
+          <Link
+            to="work"
+            spy={true}
+            smooth={true}
+            offset={-90}
+            duration={500}
+            className="home__button"
+          >
+            {lang ? homeTexts[0].viewWork_en : homeTexts[0].viewWork_de}
+            <BsFillArrowRightCircleFill className="home__button--arrow"/>
+          </Link>
+        </div>
+        <div className="home__drawing">
+          <img src={man} alt="Mann am Pc" />
+          <motion.img
+            className="home__backgroundCircle"
+            src={circle}
+            alt="Background circle"
+            variants={scaleVariants}
+            whileInView={scaleVariants.whileInView}
+          />
+          <motion.img
+            src={reactImg}
+            whileInView={{ scale: [0, 1] }}
+            transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+            className="home__reactCircle"
+          />
+          <motion.img
+            src={sassImg}
+            whileInView={{ scale: [0, 1] }}
+            transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }}
+            className="home__sassCircle"
+          />
+          <motion.img
+            src={nodeImg}
+            whileInView={{ scale: [0, 1] }}
+            transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
+            className="home__nodeCircle"
+          />
+        </div>
       </div>
       <div className="home__wave">
         <svg

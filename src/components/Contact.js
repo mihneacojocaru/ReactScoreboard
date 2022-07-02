@@ -12,7 +12,7 @@ import {FaXingSquare, FaFacebookSquare} from 'react-icons/fa';
 
 const Contact = () => {
 
-  const [lang,setLang] = useContext(LanguageContext);
+  const [lang] = useContext(LanguageContext);
 
   const dispatch = useNotification();
 
@@ -22,7 +22,7 @@ const Contact = () => {
 
     try {
       const antwort = await emailjs.sendForm('service_o5138oh', 'template_ei03bwe', e.target, 'ljf6JQsxpSVnMjuCl');
-      if(antwort.text == 'OK'){
+      if(antwort.text === 'OK'){
         dispatch({
           type:"SUCCESS",
           message:"Ihre Nachricht wurde erfolgreich versendet. Vielen Dank!"
@@ -50,7 +50,7 @@ const Contact = () => {
 
   useEffect(()=>{
     setErrors(validateInfo(values));
-  },[]);
+  },[values]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -102,31 +102,33 @@ const Contact = () => {
 
   return (
     <div id="contact" className="contact">
-      <div className="contact__titleSection">
-        <h2>{lang ? "Contact" : "Kontakt"}</h2>
-        <p>{lang ? "Have a question or want to work together?" : "Haben Sie eine Frage oder möchten Sie zusammenarbeiten?"}</p>
-      </div>
-      <form onSubmit={handleSubmit} className="contact__emailForm">
-        <input type="text" placeholder={lang ? "Name" : "Name"}  name="name" value={values.name} onChange={handleChange}/>
-        <input type="text" placeholder={lang ? "Enter E-Mail" :"E-Mail eingeben"} name="email" value={values.email} onChange={handleChange}/>
-        <textarea placeholder={lang ? "Your Message" : "Ihre Nachricht"} name="message" value={values.message} onChange={handleChange}></textarea>
-        <div className="contact__emailForm--btnContainer">
-          <button>{lang ? "Send" : "Senden"}</button>
+      <div className="contact__container">
+        <div className="contact__titleSection">
+          <h2>{lang ? "Contact" : "Kontakt"}</h2>
+          <p>{lang ? "Have a question or want to work together?" : "Haben Sie eine Frage oder möchten Sie mit mir zusammenarbeiten?"}</p>
         </div>
-      </form>
-      <div className="contact__sideLinks">
-        <a href="https://linkedin.com/in/mihnea-cojocaru-68821151/" target="_blank" rel="noreferrer" className="contact__sideLinks--linkedIn">
-          <BsLinkedin/>
-        </a>
-        <a href="https://xing.com/profile/Mihnea_Cojocaru/cv" target="_blank" rel="noreferrer" className="contact__sideLinks--xing">
-          <FaXingSquare/>
-        </a>
-        <a href="https://github.com/mihneacojocaru" target="_blank" rel="noreferrer" className="contact__sideLinks--github">
-          <BsGithub/>
-        </a>
-        <a href="https://www.facebook.com/mihnea.co/" target="_blank" rel="noreferrer" className="contact__sideLinks--facebook">
-          <FaFacebookSquare/>
-        </a>
+        <form onSubmit={handleSubmit} className="contact__emailForm">
+          <input type="text" placeholder={lang ? "Name" : "Name"}  name="name" value={values.name} onChange={handleChange}/>
+          <input type="text" placeholder={lang ? "Enter E-Mail" :"E-Mail eingeben"} name="email" value={values.email} onChange={handleChange}/>
+          <textarea placeholder={lang ? "Your Message" : "Ihre Nachricht"} name="message" value={values.message} onChange={handleChange}></textarea>
+          <div className="contact__emailForm--btnContainer">
+            <button>{lang ? "Send" : "Senden"}</button>
+          </div>
+        </form>
+        <div className="contact__sideLinks">
+          <a href="https://linkedin.com/in/mihnea-cojocaru-68821151/" target="_blank" rel="noreferrer" className="contact__sideLinks--linkedIn">
+            <BsLinkedin/>
+          </a>
+          <a href="https://xing.com/profile/Mihnea_Cojocaru/cv" target="_blank" rel="noreferrer" className="contact__sideLinks--xing">
+            <FaXingSquare/>
+          </a>
+          <a href="https://github.com/mihneacojocaru" target="_blank" rel="noreferrer" className="contact__sideLinks--github">
+            <BsGithub/>
+          </a>
+          <a href="https://www.facebook.com/mihnea.co/" target="_blank" rel="noreferrer" className="contact__sideLinks--facebook">
+            <FaFacebookSquare/>
+          </a>
+        </div>
       </div>
       {/* <div className="contact__divider">
         <svg

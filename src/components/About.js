@@ -5,7 +5,7 @@ import { LanguageContext } from "./LanguageContext/LanguageProvider";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import mihnea from '../assets/mihnea_new02.jpg';
+import mihnea from '../assets/mihnea_profile.jpg';
 
 import {MdSpeed, MdDevices} from 'react-icons/md';
 import {FaRegLightbulb} from 'react-icons/fa';
@@ -21,14 +21,16 @@ const About = () => {
       duration:2500, 
       delay:150,
       once: true,
+      disable: 'mobile',
     });
 
   },[])
 
-  const [lang,setLang] = useContext(LanguageContext);
+  const [lang] = useContext(LanguageContext);
 
   return (
     <div id="about" className="about">
+      <div className="about__container">
       <section className="about__title-section">
         <h2>{lang ? aboutInfo[0].about_title_en : aboutInfo[0].about_title_de}</h2>
       </section>
@@ -43,7 +45,7 @@ const About = () => {
           <p className="about__description--p1">{lang ? aboutInfo[0].about_desc_p11_en : aboutInfo[0].about_desc_p11_de}<mark>Mihnea Cojocaru</mark>{lang ? aboutInfo[0].about_desc_p12_en : aboutInfo[0].about_desc_p12_de}
           </p>
           <p className="about__description--p2">
-          {lang ? aboutInfo[0].about_desc_p21_en : aboutInfo[0].about_desc_p21_de} <br />  <mark>Web Applications and Coding</mark> {lang ? aboutInfo[0].about_desc_p22_en : aboutInfo[0].about_desc_p22_de}
+          {lang ? aboutInfo[0].about_desc_p21_en : aboutInfo[0].about_desc_p21_de} <mark>Web-Apps & Coding</mark> {lang ? aboutInfo[0].about_desc_p22_en : aboutInfo[0].about_desc_p22_de}
           </p>
         </div>
       </section>
@@ -77,6 +79,7 @@ const About = () => {
           <p>{lang ? aboutInfo[0].about_el4_p_en : aboutInfo[0].about_el4_p_de}</p>
         </div>
       </section>
+      </div>
       <div className="about__divider">
         <svg
           data-name="Layer 1"

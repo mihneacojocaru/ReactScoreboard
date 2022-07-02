@@ -68,9 +68,8 @@ export const homeTexts = [
             building full stack web applications.`,
         viewWork_en: "View Work",
         hi_de : "Hallo, ich bin",
-        whatIDo_de: "und bin ein Webentwickler",
-        desc_de: `Ich bin ein Full-Stack-Entwickler, der sich auf die Enwicklung (und gelegentlich
-            Gestaltung) der Webapplications fokusiert...`,
+        whatIDo_de: "und ich bin Web Developer",
+        desc_de: `Ich bin Full-Stack-Developer und darauf spezialisiert webbasierte Webanwendungen zu entwerfen und zu entwickeln. Derzeit fokussiere ich mich auf die Erstellung von Full-Stack Web-Applikationen.`,
         viewWork_de: "Meine Projekte"
     }   
 ]
@@ -83,7 +82,7 @@ export const aboutInfo = [
         about_cv_down_en: "Download CV",
         about_desc_p11_en: "My name is ", 
         about_desc_p12_en: " and I am a web developer based in Bielefeld, Germany. I graduated in 2014 with a bachelor's degree in Telecomunications Engineering from the Faculty of Electronics, Telecommunications and Information Technology in Bucharest.",
-        about_desc_p21_en:`In the recent years I developed a passion for `,
+        about_desc_p21_en:`In recent years I've developed a passion for `,
         about_desc_p22_en:` and I'm currently on a journey of becoming better at my craft.
         The websites that I envision are...`,
         about_el1_t_en: "FAST",
@@ -95,21 +94,20 @@ export const aboutInfo = [
         about_el4_t_en: `DYNAMIC`,
         about_el4_p_en: `Websites don't have to be static, I love making pages come to life.`,
 
-        about_title_de: "Get to know me",
-        about_cv_down_de: "Download CV",
-        about_desc_p11_de: "My name is ", 
-        about_desc_p12_de: " and I am a web developer based in Bielefeld, Germany. I graduated in 2014 with a bachelor's degree in Telecomunications Engineering from the Faculty of Electronics, Telecommunications and Information Technology in Bucharest.",
-        about_desc_p21_de:`In the recent years I developed a passion for `,
-        about_desc_p22_de:` and I'm currently on a journey of becoming better at my craft.
-        The websites that I envision are...`,
+        about_title_de: "Mehr über mich",
+        about_cv_down_de: "Lebenslauf",
+        about_desc_p11_de: "Mein Name ist ", 
+        about_desc_p12_de: " und ich bin Web Developer mit Hauptsitz in Bielefeld, DE. Im Jahre 2014 habe ich meinen Bachelor of Engineering in Telekommunikation und Informationstechnologie an der Polytechnischen Universität Bukarest erfolgreich abgeschlossen.",
+        about_desc_p21_de:`In den letzten Jahren habe ich eine Leidenschaft für `,
+        about_desc_p22_de:` entwickelt und bin derzeit dabei meine Fertigkeiten zu optimieren. Die Websites, die ich realisiere sind...`,
         about_el1_t_de: "SCHNELL",
-        about_el1_p_de: `Schnelle Ladezeiten und verzögerungsfreie Interaktion, meine höchste Priorität.`,
-        about_el2_t_de:`RESPONSIVE`,
-        about_el2_p_de:`Meine Layouts funktionieren auf jedem Gerät, egal ob groß oder klein.`,
+        about_el1_p_de: `Schnelle Ladezeiten und eine verzögerungsfreie Interaktion, sind meine höchste Priorität.`,
+        about_el2_t_de:`REAKTIONSFÄHIG`,
+        about_el2_p_de:`Die von mir erstellten Layouts funktionieren auf jedem Gerät, egal ob groß oder klein.`,
         about_el3_t_de: `INTUITIV`,
-        about_el3_p_de: `Strong preference for easy to use, intuitive UX/UI.`,
+        about_el3_p_de: `Meine Arbeit kennzeichnet eine große Vorliebe für einfach zu bedienende und intuitive UX/UI.`,
         about_el4_t_de: `DYNAMISCH`,
-        about_el4_p_de: `Websites müssen nicht statisch sein, ich liebe es, Seiten lebendig zu gestalten.`,
+        about_el4_p_de: `Websites müssen nicht statisch sein. Ich liebe es, Seiten lebendig zu gestalten.`,
     }
 ]
 

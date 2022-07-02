@@ -1,19 +1,41 @@
 .contact {
   position: relative;
-  padding: 10px 0;
+  padding: 3em 0 5em;
   min-height: calc(90vh - 80px);
   background-color: $dark1;
   text-align: center;
   color: $light-color;
 
+  @include mq('lg'){
+    padding-bottom: 10px;
+  }
+
+  @media (min-width: 2000px){
+    min-height: auto;
+    padding-bottom: 20em;
+  }
+  @media (min-width: 3000px){
+    min-height: auto;
+    padding-bottom: 30em;
+  }
+
+  &__container{
+    max-width: 1900px;
+    margin: 0 auto;
+  }
+
   &__titleSection{
     padding: 20px 0;
-    font-size: 25px;
+    font-size: 20px;
 
     p{
       font-size: 16px;
       color: $blueMainColor;
       padding: 20px 0;
+    }
+
+    @include mq('md'){
+      font-size: 25px;
     }
   }
 
@@ -23,11 +45,15 @@
     input{
       width: 300px;
       padding: 7px;
+      background-color: black;
       background-color: $darkShades;
       color: $light-color;
       border: none;
       margin: 0 0 3px;
       outline: none;
+    }
+    input:-webkit-autofill, input:focus:-webkit-autofill {
+      -webkit-text-fill-color: black;
     }
     textarea{
       width: 300px;
